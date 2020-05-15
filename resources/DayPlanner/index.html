@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Work Day Scheduler</title>
+  </head>
+
+  <body>
+    <header class="jumbotron">
+      <h1 class="display-3">Work Day Scheduler</h1>
+      <p class="lead">A simple calendar app for scheduling your work day</p>
+      <p id="currentDay" class="lead"></p>
+    </header>
+    <div class="container">
+      <!-- Timeblocks go here -->
+      <table class="time-block">
+        <tr>
+          <td class="hour" data-time="09">9AM</td>
+          <td class="input" id="09">
+            <textarea id="9AM" class="row description"></textarea>
+          </td>
+          <td class="saveBtn">
+            <i style="font-size: 24px;" class="fa">&#xf0c7;</i>
+          </td>
+        </tr>
+        <tr>
+          <td class="hour" data-time="10">10AM</td>
+          <td class="input" id="10">
+            <textarea id="10AM" class="row description"></textarea>
+          </td>
+          <td class="saveBtn">
+            <i style="font-size: 24px;" class="fa">&#xf0c7;</i>
+          </td>
+        </tr>
+        <tr>
+          <td class="hour" data-time="11">11AM</td>
+          <td class="input" id="11">
+            <textarea id="11AM" class="row description"></textarea>
+          </td>
+          <td class="saveBtn">
+            <i style="font-size: 24px;" class="fa">&#xf0c7;</i>
+          </td>
+        </tr>
+        <tr>
+          <td class="hour" data-time="12">12PM</td>
+          <td class="input" id="12">
+            <textarea id="12PM" class="row description"></textarea>
+          </td>
+          <td class="saveBtn">
+            <i style="font-size: 24px;" class="fa">&#xf0c7;</i>
+          </td>
+        </tr>
+        <tr>
+          <td class="hour" data-time="13">1PM</td>
+          <td class="input" id="13">
+            <textarea id="1PM" class="row description"></textarea>
+          </td>
+          <td class="saveBtn">
+            <i style="font-size: 24px;" class="fa">&#xf0c7;</i>
+          </td>
+        </tr>
+        <tr>
+          <td class="hour" data-time="14">2PM</td>
+          <td class="input" id="14">
+            <textarea id="2PM" class="row description"></textarea>
+          </td>
+          <td class="saveBtn">
+            <i style="font-size: 24px;" class="fa">&#xf0c7;</i>
+          </td>
+        </tr>
+        <tr>
+          <td class="hour" data-time="15">3PM</td>
+          <td class="input" id="15">
+            <textarea id="3PM" class="row description"></textarea>
+          </td>
+          <td class="saveBtn">
+            <i style="font-size: 24px;" class="fa">&#xf0c7;</i>
+          </td>
+        </tr>
+        <tr>
+          <td class="hour" data-time="16">4PM</td>
+          <td class="input" id="16">
+            <textarea id="4PM" class="row description"></textarea>
+          </td>
+          <td class="saveBtn">
+            <i style="font-size: 24px;" class="fa">&#xf0c7;</i>
+          </td>
+        </tr>
+        <tr>
+          <td class="hour" data-time="17">5PM</td>
+          <td class="input" id="17">
+            <textarea id="5PM" class="row description"></textarea>
+          </td>
+          <td class="saveBtn">
+            <i style="font-size: 24px;" class="fa">&#xf0c7;</i>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var currentTime = moment().format("dddd, MMMM Do YYYY");
+        $("#currentDay").text(currentTime);
+
+        // My tutor helped me to write line 126 to 135
+        for (var i = 0; i < localStorage.length; i++) {
+          var key = localStorage.key(i);
+          var value = localStorage.getItem(key);
+          $("#" + key).text(value);
+        }
+        $("td.saveBtn").on("click", function () {
+          var hour = $(this).siblings(".hour").text();
+          var note = $(this).siblings(".input").children().val();
+          localStorage.setItem(hour, note);
+        });
+        // ======================================================
+        var currentHour = moment().format("HH");
+        var timeArr = [];
+
+        $(".hour").each(function () {
+          var time = $(this).attr("data-time");
+          timeArr.push(time);
+        });
+
+        for (var i = 0; i < timeArr.length; i++) {
+          if (currentHour > timeArr[i]) {
+            $("#" + timeArr[i]).attr("style", "background-color: lightgray");
+          } else if (currentHour == timeArr[i]) {
+            $("#" + timeArr[i]).attr("style", "background-color: red");
+          } else if (currentHour < timeArr[i]) {
+            $("#" + timeArr[i]).attr("style", "background-color: lightgreen");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

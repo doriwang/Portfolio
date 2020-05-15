@@ -1,0 +1,63 @@
+body {
+  background-image: url("./keyboard.jpg");
+  background-size: cover;
+}
+
+.navbar {
+  height: 100px
+}
+
+.nav-link,
+.portfolio-h2 {
+  color: #FFE4E1;
+}
+
+.nav-link:hover {
+  color: #FF1493
+}
+
+.bio-img {
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-row {
+  margin-top: 40px
+}
+
+.home-p {
+  text-align: center;
+  padding-top: 30px;
+  color: #FFF0F5;
+  font-size: 40px;
+  font-weight: 900;
+}
+
+.portfolio-row {
+  margin-bottom: 40px;
+  margin-top: 0
+}
+
+img {
+  height: 180px
+}
+
+.email {
+  text-decoration: underline;
+}
+
+.form-group-message {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.fixed-bottom {
+  background-color: lightgray;
+  color: dimgray;
+  text-align: center;
+  padding-top: 20px;
+}
