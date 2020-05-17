@@ -1,14 +1,14 @@
 body {
-  background-image: url("./keyboard.jpg");
+  background-image: url("./image/keyboard.jpg");
   background-size: cover;
+  color: #FFE4E1;
 }
 
 .navbar {
-  height: 100px
+  padding-top: 20px
 }
 
-.nav-link,
-.portfolio-h2 {
+.nav-link {
   color: #FFE4E1;
 }
 
@@ -25,25 +25,50 @@ body {
   margin-right: auto;
 }
 
-.home-row {
-  margin-top: 40px
+.home,
+.about-me,
+.portfolio,
+.contact {
+  margin-top: 50px
 }
 
 .home-p {
   text-align: center;
   padding-top: 30px;
-  color: #FFF0F5;
   font-size: 40px;
   font-weight: 900;
 }
 
 .portfolio-row {
   margin-bottom: 40px;
-  margin-top: 0
+}
+
+.card-title {
+  color: #4B0082
+}
+
+.btn:hover {
+  background-color: #FF1493;
+  color: #FFE4E1
+}
+
+.btn {
+  background-color: #C71585;
+  color: #FFE4E1;
+  font-size: 10px
 }
 
 img {
   height: 180px
+}
+
+.about-me {
+  /* color: #FFE4E1; */
+  font-style: italic
+}
+
+.contact {
+  width: 30%;
 }
 
 .email {
@@ -56,8 +81,12 @@ img {
 }
 
 .fixed-bottom {
-  background-color: lightgray;
-  color: dimgray;
+  background-color: #C71585;
   text-align: center;
-  padding-top: 20px;
+  height: 55px
+}
+
+i {
+  color: #FFE4E1;
+  margin: 5px
 }
