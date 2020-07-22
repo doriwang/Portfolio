@@ -47,6 +47,14 @@ body {
   color: #4B0082
 }
 
+.card {
+  margin-top: 20px
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
 .btn:hover {
   background-color: #FF1493;
   color: #FFE4E1
